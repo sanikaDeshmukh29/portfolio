@@ -136,7 +136,7 @@ export function Hero() {
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "elastic.out(1, 0.5)", delay: 0.5 }}
+            transition={{ duration: 0.8, type: "spring", stiffness: 300, damping: 20, delay: 0.5 }}
             className="relative aspect-square"
           >
             {/* Outer Orbit 1 */}
