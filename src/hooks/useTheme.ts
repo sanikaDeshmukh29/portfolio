@@ -20,8 +20,12 @@ export function useTheme() {
   });
 
   useEffect(() => {
-    // Update document data-theme attribute
-    document.documentElement.setAttribute("data-theme", theme);
+    // Add/remove dark class on html element
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
     // Save theme to localStorage
     localStorage.setItem("theme", theme);
   }, [theme]);
