@@ -21,7 +21,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Scroll Progress Bar -->
@@ -58,14 +58,17 @@
                 <div class="hero-text">
                     <p class="greeting">Hello, I'm</p>
                     <h1 class="hero-name">Sanika Deshmukh</h1>
-                    <h2 class="hero-title">Software Engineer</h2>
+                    <div class="hero-titles">
+                        <h2 class="hero-title-typing" id="typing-title"></h2>
+                    </div>
+                    <p class="hero-subtitle">Java • Spring Boot • Angular • React • AI Engineering</p>
                     <p class="hero-description">
-                        Passionate about building beautiful, functional, and scalable applications. 
-                        Let's create something amazing together!
+                        I build scalable enterprise web applications using modern full stack technologies while continuously learning software engineering, cloud, DevOps, AI and system design.
                     </p>
                     <div class="hero-buttons">
-                        <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                        <a href="#" class="btn btn-secondary" id="download-resume">Download Resume</a>
+                        <a href="#" class="btn btn-primary" id="download-resume">Download Resume</a>
+                        <a href="#projects" class="btn btn-secondary">View Projects</a>
+                        <a href="#contact" class="btn btn-outline">Contact Me</a>
                     </div>
                     <div class="social-links">
                         <a href="https://github.com/sanikaDeshmukh29" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
@@ -78,11 +81,6 @@
                             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
                         </a>
                     </div>
-                </div>
-                <div class="hero-visual">
-                    <div class="floating-shape shape-1"></div>
-                    <div class="floating-shape shape-2"></div>
-                    <div class="floating-shape shape-3"></div>
                 </div>
             </div>
             <div class="visitor-counter">
@@ -98,13 +96,13 @@
             <div class="about-content">
                 <div class="about-text">
                     <p>
-                        I'm a passionate software engineer with a love for creating elegant solutions to complex problems. 
-                        With a strong foundation in web development and a keen eye for design, I strive to build applications 
-                        that are both functional and beautiful.
+                        I completed Full Stack Java Development training from SPRK Technologies, followed by a 4-month Application Development Internship at Arridae Infosec.
                     </p>
                     <p>
-                        When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, 
-                        or enjoying a good cup of coffee while reading about the latest trends in tech.
+                        In March 2026, I joined Arridae Infosec as a Junior Developer and currently work as a Full Stack Developer building enterprise web applications.
+                    </p>
+                    <p>
+                        I enjoy solving real-world problems, learning modern technologies, and continuously improving my software engineering skills.
                     </p>
                 </div>
             </div>
@@ -119,17 +117,38 @@
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <h3>Software Engineer</h3>
-                        <p class="timeline-date">2023 - Present</p>
-                        <p>Developing scalable web applications using modern technologies. Collaborating with cross-functional teams to deliver high-quality products.</p>
+                        <h3>Full Stack Developer</h3>
+                        <p class="timeline-company">Arridae Infosec</p>
+                        <p class="timeline-date">March 2026 – Present</p>
+                        <div class="timeline-responsibilities">
+                            <span class="skill-tag">Enterprise Application Development</span>
+                            <span class="skill-tag">Angular</span>
+                            <span class="skill-tag">Spring Boot</span>
+                            <span class="skill-tag">REST APIs</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Azure Boards</span>
+                            <span class="skill-tag">Agile Scrum</span>
+                            <span class="skill-tag">Bug Fixing</span>
+                            <span class="skill-tag">Feature Development</span>
+                            <span class="skill-tag">Backend Integration</span>
+                        </div>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <h3>Junior Developer</h3>
-                        <p class="timeline-date">2021 - 2023</p>
-                        <p>Built responsive user interfaces and contributed to backend development. Gained experience in agile methodologies and team collaboration.</p>
+                        <h3>Application Development Intern</h3>
+                        <p class="timeline-company">Arridae Infosec</p>
+                        <p class="timeline-date">4 Months</p>
+                        <div class="timeline-responsibilities">
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">Spring Boot</span>
+                            <span class="skill-tag">Angular</span>
+                            <span class="skill-tag">REST APIs</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Agile Scrum</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -139,65 +158,63 @@
     <!-- Projects Section -->
     <section id="projects" class="section projects">
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="project-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="web">Web</button>
-                <button class="filter-btn" data-filter="mobile">Mobile</button>
-                <button class="filter-btn" data-filter="backend">Backend</button>
-            </div>
+            <h2 class="section-title">Professional Projects</h2>
             <div class="projects-grid">
-                <div class="project-card" data-category="web">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="placeholder-image">🔒</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>SecureSenter Enterprise Platform</h3>
+                        <p>Enterprise web application for security operations and management.</p>
+                        <div class="project-tech">
+                            <span>Spring Boot</span>
+                            <span>Angular</span>
+                            <span>MySQL</span>
+                        </div>
+                        <div class="project-badges">
+                            <span class="badge-private">Private Repository</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
                     <div class="project-image">
                         <div class="placeholder-image">🌐</div>
                     </div>
                     <div class="project-info">
-                        <h3>E-Commerce Platform</h3>
-                        <p>A full-featured e-commerce solution with payment integration and admin dashboard.</p>
+                        <h3>SecureSenter Public Website</h3>
+                        <p>Public facing website for SecureSenter with information and resources.</p>
                         <div class="project-tech">
-                            <span>React</span>
-                            <span>Node.js</span>
-                            <span>MongoDB</span>
+                            <span>Angular</span>
+                            <span>HTML/CSS</span>
                         </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">Live Demo</a>
-                            <a href="#" class="project-link">GitHub</a>
+                        <div class="project-badges">
+                            <span class="badge-private">Private Repository</span>
                         </div>
                     </div>
                 </div>
-                <div class="project-card" data-category="mobile">
+                <div class="project-card">
                     <div class="project-image">
-                        <div class="placeholder-image">📱</div>
+                        <div class="placeholder-image">👩‍💻</div>
                     </div>
                     <div class="project-info">
-                        <h3>Fitness Tracker App</h3>
-                        <p>Mobile application for tracking workouts, nutrition, and health metrics.</p>
+                        <h3>Portfolio Website</h3>
+                        <p>This portfolio website showcasing my skills, projects, and experience.</p>
                         <div class="project-tech">
-                            <span>React Native</span>
-                            <span>Firebase</span>
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="project-link">GitHub</a>
+                            <a href="https://github.com/sanikaDeshmukh29/portfolio" target="_blank" rel="noopener noreferrer" class="project-link">GitHub</a>
                         </div>
                     </div>
                 </div>
-                <div class="project-card" data-category="backend">
-                    <div class="project-image">
-                        <div class="placeholder-image">⚙️</div>
-                    </div>
-                    <div class="project-info">
-                        <h3>API Gateway</h3>
-                        <p>Scalable API gateway with authentication, rate limiting, and logging.</p>
-                        <div class="project-tech">
-                            <span>Go</span>
-                            <span>Redis</span>
-                            <span>Docker</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link">GitHub</a>
-                        </div>
-                    </div>
-                </div>
+            </div>
+            
+            <h2 class="section-title" style="margin-top: 4rem;">GitHub Projects</h2>
+            <div id="github-projects-container">
+                <div class="loading-state">Loading GitHub projects...</div>
             </div>
         </div>
     </section>
@@ -208,40 +225,76 @@
             <h2 class="section-title">Skills & Tech Stack</h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3>Frontend</h3>
+                    <h3>Languages</h3>
                     <div class="skill-tags">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">SQL</span>
                         <span class="skill-tag">HTML5</span>
                         <span class="skill-tag">CSS3</span>
-                        <span class="skill-tag">JavaScript</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Angular</span>
                         <span class="skill-tag">React</span>
-                        <span class="skill-tag">Vue.js</span>
+                        <span class="skill-tag">Bootstrap</span>
+                        <span class="skill-tag">Responsive Design</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h3>Backend</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">Go</span>
+                        <span class="skill-tag">Spring Boot</span>
+                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag">Spring Security</span>
+                        <span class="skill-tag">JPA</span>
+                        <span class="skill-tag">Hibernate</span>
+                        <span class="skill-tag">JWT</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <h3>Database</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">MongoDB</span>
-                        <span class="skill-tag">PostgreSQL</span>
                         <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">Redis</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Tools & Others</h3>
+                    <h3>Tools</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Git</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">Postman</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">IntelliJ IDEA</span>
+                        <span class="skill-tag">Maven</span>
+                        <span class="skill-tag">Azure Boards</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Agile Scrum</span>
+                        <span class="skill-tag">REST API Integration</span>
+                        <span class="skill-tag">Enterprise Development</span>
+                        <span class="skill-tag">Version Control</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>AI & Productivity</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Prompt Engineering</span>
+                        <span class="skill-tag">AI Engineering</span>
+                        <span class="skill-tag">ChatGPT</span>
+                        <span class="skill-tag">Claude</span>
+                        <span class="skill-tag">Gemini</span>
+                        <span class="skill-tag">Cursor</span>
+                        <span class="skill-tag">Trae</span>
+                        <span class="skill-tag">GitHub Copilot</span>
+                        <span class="skill-tag">AI-assisted Development</span>
+                        <span class="skill-tag">Vibe Coding</span>
                     </div>
                 </div>
             </div>
@@ -254,19 +307,46 @@
             <h2 class="section-title">Certifications</h2>
             <div class="certifications-grid">
                 <div class="cert-card">
-                    <div class="cert-icon">🏆</div>
-                    <h3>AWS Certified Developer</h3>
-                    <p>Amazon Web Services</p>
-                </div>
-                <div class="cert-card">
                     <div class="cert-icon">🎓</div>
-                    <h3>Google Cloud Professional</h3>
-                    <p>Google Cloud</p>
+                    <h3>Full Stack Java Development</h3>
+                    <p>SPRK Technologies</p>
                 </div>
                 <div class="cert-card">
                     <div class="cert-icon">📜</div>
-                    <h3>Scrum Master Certified</h3>
-                    <p>Scrum Alliance</p>
+                    <h3>Application Development Internship</h3>
+                    <p>Arridae Infosec</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Currently Learning Section -->
+    <section id="learning" class="section learning">
+        <div class="container">
+            <h2 class="section-title">Currently Learning</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Cloud & DevOps</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">AWS</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>System Design</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">System Design</span>
+                        <span class="skill-tag">Microservices</span>
+                        <span class="skill-tag">Redis</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Core Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">DSA</span>
+                        <span class="skill-tag">AI Engineering</span>
+                    </div>
                 </div>
             </div>
         </div>
