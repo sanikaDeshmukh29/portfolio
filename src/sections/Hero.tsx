@@ -36,6 +36,10 @@ export function Hero() {
     gsap.to(".blob-1", { y: -20, duration: 4, repeat: -1, yoyo: true, ease: "sine.inOut" });
     gsap.to(".blob-2", { y: 20, duration: 5, repeat: -1, yoyo: true, ease: "sine.inOut", delay: 0.5 });
     gsap.to(".blob-3", { x: -20, duration: 6, repeat: -1, yoyo: true, ease: "sine.inOut", delay: 1 });
+
+    // Orbit animations for hero visual
+    gsap.to(".orbit-1", { rotation: 360, duration: 20, repeat: -1, ease: "none", transformOrigin: "center" });
+    gsap.to(".orbit-2", { rotation: -360, duration: 25, repeat: -1, ease: "none", transformOrigin: "center", delay: 0.5 });
   }, []);
 
   return (
@@ -133,13 +137,46 @@ export function Hero() {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, ease: "elastic.out(1, 0.5)", delay: 0.5 }}
-            className="relative"
+            className="relative aspect-square"
           >
-            <div className="w-full aspect-square bg-gradient-to-br from-blue-500 to-cyan-400 rounded-3xl p-1">
-              <div className="w-full h-full bg-slate-50 dark:bg-slate-900 rounded-3xl flex items-center justify-center">
-                <div className="text-9xl">👩‍💻</div>
-              </div>
+            {/* Outer Orbit 1 */}
+            <div className="absolute inset-0 orbit-1">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-6 h-6 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full shadow-lg shadow-blue-500/30" />
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-gradient-to-br from-purple-500 to-pink-400 rounded-full shadow-lg shadow-purple-500/30" />
             </div>
+
+            {/* Outer Orbit 2 */}
+            <div className="absolute inset-8 orbit-2">
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-5 h-5 bg-gradient-to-br from-green-500 to-emerald-400 rounded-full shadow-lg shadow-green-500/30" />
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-gradient-to-br from-yellow-500 to-orange-400 rounded-full shadow-lg shadow-yellow-500/30" />
+            </div>
+
+            {/* Main Card */}
+            <motion.div
+              animate={{
+                rotateY: [0, 5, -5, 0],
+                rotateX: [0, -5, 5, 0],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="absolute inset-12 z-10"
+            >
+              <div className="w-full h-full bg-gradient-to-br from-blue-500 to-cyan-400 rounded-3xl p-1 shadow-2xl shadow-blue-500/20">
+                <div className="w-full h-full bg-slate-50 dark:bg-slate-900 rounded-3xl flex items-center justify-center backdrop-blur-sm">
+                  <div className="text-center">
+                    <div className="text-9xl mb-4">👩‍💻</div>
+                    <div className="flex justify-center gap-2">
+                      <span className="w-3 h-3 rounded-full bg-red-400" />
+                      <span className="w-3 h-3 rounded-full bg-yellow-400" />
+                      <span className="w-3 h-3 rounded-full bg-green-400" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
