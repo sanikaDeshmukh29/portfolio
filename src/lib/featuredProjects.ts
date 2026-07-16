@@ -5,7 +5,7 @@ export const FEATURED_PROJECT_FALLBACKS: string[] = [
   "EmployeeManagementSystem",
   "hospitality_crud_project",
   "job-portal",
-  "WeatherApp-in-JavaScript",
+  "WeatherApp-in-Javascript",
   "student-management",
   "JDBC_Student_Management_Project",
   "Login-Logout-System",
