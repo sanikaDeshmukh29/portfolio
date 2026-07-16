@@ -4,7 +4,7 @@ export const FEATURED_PROJECT_FALLBACKS: string[] = [
   // Example: "my-awesome-project", "another-great-repo"
   "EmployeeManagementSystem",
   "hospitality_crud_project",
-  "job-portal",
+  "Job-Portal",
   "WeatherApp-in-Javascript",
   "student-management",
   "JDBC_Student_Management_Project",
