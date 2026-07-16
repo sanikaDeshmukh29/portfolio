@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Reveal } from "@/components/Reveal";
 import { Section } from "@/components/Section";
 import { MagneticButton } from "@/components/MagneticButton";
-import { Mail, Phone, MapPin, Github, Linkedin, CheckCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Github, Linkedin, CheckCircle, AlertCircle } from "lucide-react";
 import { PERSONAL_INFO, SOCIAL_LINKS } from "@/lib/constants";
+import { sendContactEmail } from "@/lib/emailService";
 
 /**
  * Contact section with form and contact info
@@ -16,20 +17,29 @@ export function Contact() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError(false);
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      await sendContactEmail(formData.name, formData.email, formData.message);
       setSubmitSuccess(true);
       setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Failed to send message:", error);
+      setSubmitError(true);
+    } finally {
+      setIsSubmitting(false);
+    }
 
-      // Reset success message after 3 seconds
-      setTimeout(() => setSubmitSuccess(false), 3000);
-    }, 1000);
+    // Reset messages after 5 seconds
+    setTimeout(() => {
+      setSubmitSuccess(false);
+      setSubmitError(false);
+    }, 5000);
   };
 
   const handleChange = (
@@ -141,6 +151,16 @@ export function Contact() {
                 </h3>
                 <p className="text-slate-600 dark:text-slate-300">
                   Thanks for reaching out. I'll get back to you soon!
+                </p>
+              </div>
+            ) : submitError ? (
+              <div className="text-center py-8">
+                <AlertCircle size={64} className="text-red-500 mx-auto mb-4" />
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
+                  Something went wrong!
+                </h3>
+                <p className="text-slate-600 dark:text-slate-300">
+                  Please try again later or contact me directly via email.
                 </p>
               </div>
             ) : (

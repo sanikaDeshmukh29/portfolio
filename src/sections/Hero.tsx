@@ -3,6 +3,8 @@ import { motion, useAnimationControls } from "framer-motion";
 import { Github, Linkedin, ExternalLink, Mail, Download } from "lucide-react";
 import { MagneticButton } from "@/components/MagneticButton";
 import { PERSONAL_INFO, SOCIAL_LINKS, RESUME_URL } from "@/lib/constants";
+import { db } from "@/lib/firebase";
+import { doc, getDoc, increment, setDoc } from "firebase/firestore";
 import gsap from "gsap";
 
 /**
@@ -14,32 +16,44 @@ export function Hero() {
   const [displayCount, setDisplayCount] = useState(0);
   const [countLoading, setCountLoading] = useState(true);
 
-  // Global Visitor Counter using CountAPI
+  // Global Visitor Counter using Firebase Firestore
   useEffect(() => {
     const fetchAndUpdateCount = async () => {
       try {
-        // Step 1: Get current count
-       const response = await fetch(
-          "https://api.countapi.xyz/hit/sanikadeshmukh29-github-io-portfolio/visits"
-        );
+        const counterDocRef = doc(db, "portfolio", "visitorCounter");
+        const counterDoc = await getDoc(counterDocRef);
 
-        if (!response.ok) {
-          throw new Error("Failed to fetch visitor count");
+        let currentCount = 40;
+
+        if (counterDoc.exists()) {
+          currentCount = counterDoc.data().count || 40;
+        } else {
+          // Initialize document if it doesn't exist
+          await setDoc(counterDocRef, { count: 40 });
         }
 
-const data = await response.json();
-const numericCount = data.value ?? 0;
+        // Increment only once per session
+        const hasVisited = sessionStorage.getItem("hasVisited");
+        if (!hasVisited) {
+          await setDoc(
+            counterDocRef,
+            { count: increment(1) },
+            { merge: true }
+          );
+          sessionStorage.setItem("hasVisited", "true");
+          currentCount += 1;
+        }
 
         // Animate the count
-        let current = 0;
-        const increment = Math.ceil(numericCount / 50);
+        let currentAnim = 0;
+        const incrementVal = Math.ceil(currentCount / 50);
         const timer = setInterval(() => {
-          current += increment;
-          if (current >= numericCount) {
-            setDisplayCount(numericCount);
+          currentAnim += incrementVal;
+          if (currentAnim >= currentCount) {
+            setDisplayCount(currentCount);
             clearInterval(timer);
           } else {
-            setDisplayCount(current);
+            setDisplayCount(currentAnim);
           }
         }, 20);
 
